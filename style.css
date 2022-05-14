@@ -1,6 +1,7 @@
 * {
     margin: 0 auto;
     padding: 0;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .container {
@@ -11,15 +12,15 @@
 }
 table{
     text-align: center;
+    
 }
 
 /*Daqui pra baixo é cachorrada*/
-td{
-    border: 2px solid red;
-}
 
 td{
     background-color: lightgreen;
+    border-radius: 30%;
+    padding: 1vh;
 }
 
 #row1, #row15, #row33, #row45{
@@ -27,5 +28,9 @@ td{
 }
 
 #titleTable{
+    border: 2px solid red;  
     background: none;
+    border-radius: 0;
+    padding: 1vh;
+    font-size: 20px;
 }

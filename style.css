@@ -1,0 +1,31 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 3vh;
+    margin: 2vh;
+}
+table{
+    text-align: center;
+}
+
+/*Daqui pra baixo é cachorrada*/
+td{
+    border: 2px solid red;
+}
+
+td{
+    background-color: lightgreen;
+}
+
+#row1, #row15, #row33, #row45{
+    background-color: rgb(255, 158, 158);
+}
+
+#titleTable{
+    background: none;
+}

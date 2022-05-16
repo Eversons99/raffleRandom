@@ -105,7 +105,7 @@ function addNumberInCar(getNum){
 }
 function finanilyBuy(){
     document.querySelector('.container').style.display = 'none'
-    document.querySelector('.resultFinaly').style.display = 'block'
+    document.querySelector('.resultFinaly').style.display = 'flex'
     
     const divResult = document.getElementById('resultList')
     divResult.append(`Número(s) comprado(s) \n ${control}`)

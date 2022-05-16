@@ -9,6 +9,8 @@
 
 
 // Verificando o tamanho da tela e definindo o número de colunas e linhas
+
+const control = []
 function onloadPage (){
     
     const height = window.innerHeight
@@ -57,14 +59,55 @@ function createDataTable(qtdRepeat, qtdPerLine){
 
         tbody.appendChild(row)
     } 
-
 }
 
+//Confirma as cores e marca se está disponivel ou indisponivel
 function confirmDisp(idCell){
-    const getDisp = document.getElementById(`row${idCell}`)
-    const getColor = window.getComputedStyle(getDisp).backgroundColor
+    const getNum = document.getElementById(`row${idCell}`)
+    const getColor = window.getComputedStyle(getNum).backgroundColor
     if(getColor == "rgb(255, 158, 158)") alert(`${idCell} está indisponivel`)
-    if(getColor == "rgb(144, 238, 144)") alert(`${idCell} está disponivel`)
-    
+    //if(getColor == "rgb(144, 238, 144)") alert(`${idCell} está disponivel`)
+    if(getColor == "rgb(144, 238, 144)") addNumberInCar(getNum)
 }
 
+function addNumberInCar(getNum){
+    const currentNum = getNum.textContent
+    
+    
+    const confirmFirstbuy = confirm('Deseja comprar esse numero ?')
+
+    if(confirmFirstbuy == true){
+        //Adiciono o numero escolhido na aray de controle
+        
+
+        // Pego a div resultado para inseir os numero selecionados e salvar os valores
+        const divResult = document.querySelector('.numbers')
+        const currentResult = divResult.textContent 
+        
+        if(divResult.childNodes.length == 1) {
+            control.push(currentNum)
+            document.querySelector('button').style.display = 'inline'
+            divResult.append(`Números selecionados \n ${currentNum}`)
+            
+        }
+        else{
+            control.push(currentNum)
+            const verifDupicate = `${currentResult}`
+            const queryDuplicate = verifDupicate.indexOf(currentNum)
+            if(queryDuplicate != -1){
+                alert('Este número já foi incluido em sua lista')
+            }
+            else {
+                divResult.append(`, ${currentNum}`)
+            }
+        } 
+    }   
+}
+function finanilyBuy(){
+    document.querySelector('.container').style.display = 'none'
+    document.querySelector('.resultFinaly').style.display = 'block'
+    
+    const divResult = document.getElementById('resultList')
+    divResult.append(`Número(s) comprado(s) \n ${control}`)
+
+}

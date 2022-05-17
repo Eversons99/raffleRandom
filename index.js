@@ -1,16 +1,15 @@
-
 // Verificar o tamanho da telas -- ok
 
 // Criar os elemento de acordo com o tamanho da tela --ok
 
-// Marcas vendidos e disponiveis 
+// Marcas vendidos e disponiveis -- ok
 
 // Adicionar um ouvidor de eventos para alterar o layout da pagina dinamicamentes
 
-
-// Verificando o tamanho da tela e definindo o número de colunas e linhas
+// Verificando o tamanho da tela e definindo o número de colunas e linhas -- ok
 
 const control = []
+
 function onloadPage (){
     
     const height = window.innerHeight
@@ -87,7 +86,7 @@ function addNumberInCar(getNum){
         if(divResult.childNodes.length == 1) {
             control.push(currentNum)
             document.querySelector('button').style.display = 'inline'
-            divResult.append(`Números selecionados \n ${currentNum}`)
+            divResult.append(`Número(s) selecionado(s): \n ${currentNum}`)
             
         }
         else{
@@ -103,11 +102,12 @@ function addNumberInCar(getNum){
         } 
     }   
 }
+
 function finanilyBuy(){
     document.querySelector('.container').style.display = 'none'
     document.querySelector('.resultFinaly').style.display = 'flex'
     
     const divResult = document.getElementById('resultList')
-    divResult.append(`Número(s) comprado(s) \n ${control}`)
+    divResult.append(`${control}`)
 
 }

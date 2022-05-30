@@ -31,7 +31,7 @@
             <div class="numbers-selected"> 
             </div>
             <div class="btnFinaly">
-                <button onclick="finalyBuy()">Finalizar compra</button>
+                <button class="btnNext buttons" onclick="finalyBuy()">Finalizar compra</button>
             </div>
         </section>
 
@@ -42,34 +42,38 @@
         </footer>
     </div>
 
-    <div class="form container">
+    <div class="container form">
         
         <form action="file:///home/everson/Desktop/raffleRandom/index.html" method="post">
             <div class="cad-name">
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" placeholder="Ex: Jose Santos"/> 
+                <label for="name">Nome</label>
+                <input type="text" id="name" placeholder="Ex: Jose Santos"/> 
             </div>
 
             <div class="cad-phone">
                 <label for="phone">Telefone</label>
-                <input type="tel" id="phone" placeholder="Ex: 11 966660000"/>
+                <input type="tel" id="phone" placeholder="Ex: 11966660000"/>
             </div>
 
             <div class="cad-email">
                 <label for="email">E-mail</label>
                 <input type="email" id="email" placeholder="Ex: seuEmail@gmail.com"/>
             </div>
-        </form>
 
-        <div class="resultFinaly container">
-            <img src="./images/compra.jpg" alt="" srcset="">
-            <p>Número(s) comprado(s):</p>
-            <p id="resultList"></p>
+            <div class="numbers-selecteds">
+                <p>Número(s) selecionado(s):</p>
+                <p id="resultList"></p>     
+            </div>  
+            
+        </form>
+        
+        <div class="btnNextP">
+            <button class="buttons" id="btnNextP">Prosseguir</button>
         </div>
-    
+        
+        
     </div>
 
-    
     
     
    

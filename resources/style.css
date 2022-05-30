@@ -57,8 +57,8 @@ td{
     margin: 3vh;
 }
 
-button{
-    display: none;
+.buttons{
+    display: inline;
     background: #3a555e;
     color: #ffffff;
     padding: 2vh;
@@ -76,16 +76,30 @@ button{
 
 .form{
     display: none;
-    font-size: 20px;
+    font-size: 18px;
+    justify-content: center;
 }
 
-.cad-name, .cad-email, .cad-phone {
+.cad-name, .cad-email, .cad-phone, .numbers-selecteds {
     display: flex;
     flex-direction: column;
-    padding: 2vh;
+    padding: 2vh 0;
     width: 100%;
+    margin: 0;
 }
 
+input{
+    margin: 0;
+    padding: 0;
+}
+
+.btnFinaly{
+   display: none; 
+}
+
+.btnNextP{
+    display: flex;
+}
 footer{
     padding: 2vh;
 }

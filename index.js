@@ -91,7 +91,7 @@ function addNumberInCar(getNum){
         
         if(divResult.childNodes.length == 1) {
             control.push(currentNum)
-            document.querySelector('button').style.display = 'inline'
+            document.querySelector('.btnFinaly').style.display = 'inline'
             divResult.append(`Número(s) selecionado(s): \n ${currentNum}`)
             
         }
@@ -111,16 +111,31 @@ function addNumberInCar(getNum){
 
 /*Agora basta coletar os dados dos usuarios, os numeros selecionados e confirmar o pagamento  */
 
+//Esconde a div container e apresenta o form, alem disso printa os nmr comprados
 function finalyBuy(){
     document.querySelector('.container').style.display = 'none'
     document.querySelector('.form').style.display = 'flex'
-    
+     
     const divResult = document.getElementById('resultList')
     divResult.append(`${control}`)
 
 }
 
+const btnNextP = document.getElementById('btnNextP')
 
+btnNextP.addEventListener('click', confirmCadast)
+
+function confirmCadast(){
+
+    const name = document.getElementById('name').value
+    const phone = document.getElementById('phone').textContent
+    const email = document.getElementById('email').innerText
+
+    if(!name || !phone || !email) alert ('Preencha todos os dados')
+
+    //Salvar o cadastro e confimar o pagamento
+}
+/*
 function Cliente(nome, cpf, email, saldo){
     this.nome = nome 
     this.cpf = cpf  
@@ -130,3 +145,4 @@ function Cliente(nome, cpf, email, saldo){
         this.saldo += valor
     }
 }
+*/

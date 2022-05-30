@@ -53,11 +53,18 @@ td{
     margin: 2vh;
 }
 
+.numbers-selected{
+    margin: 3vh;
+}
 /*Daqui pra baixo é cachorrada*/
 
+#row10 {
+    background: #3a555e;
+}
 button{
     display: none;
-    background: #da6213;
+    background: #3a555e;
+    color: #ffffff;
     padding: 2vh;
     margin: 2vh;
     font-size: 16px;

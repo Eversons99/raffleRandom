@@ -71,7 +71,7 @@ function confirmDisp(idCell){
     const getColor = window.getComputedStyle(getNum).backgroundColor
     console.log(getColor)
     
-    if(getColor == "rgb(255, 158, 158)") alert(`${idCell} está indisponivel`)
+    if(getColor == "rgb(58, 85, 94)") alert(`${idCell} está indisponivel`)
     //if(getColor == "rgb(144, 238, 144)") alert(`${idCell} está disponivel`)
     if(getColor == "rgb(231, 239, 241)") addNumberInCar(getNum)
 }
@@ -79,13 +79,11 @@ function confirmDisp(idCell){
 function addNumberInCar(getNum){
     const currentNum = getNum.textContent
     
-    
     const confirmFirstbuy = confirm('Deseja comprar esse numero ?')
 
     if(confirmFirstbuy == true){
         //Adiciono o numero escolhido na aray de controle
         
-
         // Pego a div resultado para inseir os numero selecionados e salvar os valores
         const divResult = document.querySelector('.numbers-selected')
         const currentResult = divResult.textContent 
@@ -97,18 +95,20 @@ function addNumberInCar(getNum){
             
         }
         else{
-            control.push(currentNum)
             const verifDupicate = `${currentResult}`
             const queryDuplicate = verifDupicate.indexOf(currentNum)
             if(queryDuplicate != -1){
                 alert('Este número já foi incluido em sua lista')
             }
             else {
+                control.push(currentNum)
                 divResult.append(`, ${currentNum}`)
             }
         } 
     }   
 }
+
+/*Agora basta coletar os dados dos usuarios, os numeros selecionados e confirmar o pagamento  */
 
 function finalyBuy(){
     document.querySelector('.container').style.display = 'none'

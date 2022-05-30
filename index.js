@@ -8,6 +8,7 @@
 
 // Verificando o tamanho da tela e definindo o número de colunas e linhas -- ok
 
+const allClients = []
 const control = []
 
 function onloadPage (){
@@ -112,9 +113,20 @@ function addNumberInCar(getNum){
 
 function finalyBuy(){
     document.querySelector('.container').style.display = 'none'
-    document.querySelector('.resultFinaly').style.display = 'flex'
+    document.querySelector('.form').style.display = 'flex'
     
     const divResult = document.getElementById('resultList')
     divResult.append(`${control}`)
 
+}
+
+
+function Cliente(nome, cpf, email, saldo){
+    this.nome = nome 
+    this.cpf = cpf  
+    this.email = email
+    this.saldo = saldo
+    this.depositar = function (valor){
+        this.saldo += valor
+    }
 }

@@ -34,7 +34,7 @@ table{
 
 
 td{
-    border: solid black 0.5px;
+    border: solid black 0.25px;
     background: #e7eff1; 
     padding: 0;
 }
@@ -56,11 +56,7 @@ td{
 .numbers-selected{
     margin: 3vh;
 }
-/*Daqui pra baixo é cachorrada*/
 
-#row10 {
-    background: #3a555e;
-}
 button{
     display: none;
     background: #3a555e;
@@ -77,8 +73,31 @@ button{
     border-radius: 4px;
     max-width: 70%;
 }
+
+.form{
+    display: none;
+    font-size: 20px;
+}
+
+.cad-name, .cad-email, .cad-phone {
+    display: flex;
+    flex-direction: column;
+    padding: 2vh;
+    width: 100%;
+}
+
 footer{
     padding: 2vh;
+}
+
+
+/*Daqui pra baixo é cachorrada*/
+
+
+
+
+#row10, #row1000 {
+    background: #3a555e;
 }
 
 .resultFinaly{

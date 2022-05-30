@@ -52,6 +52,7 @@ function createDataTable(qtdRepeat, qtdPerLine){
             const collumn = document.createElement('td')
             collumn.textContent = count++
             collumn.setAttribute('id', `row${collumn.textContent}`)
+            collumn.setAttribute('class', 'numbers')
             collumn.setAttribute('onclick', `confirmDisp(${collumn.textContent})`)
             row.appendChild(collumn)
         }
@@ -60,13 +61,19 @@ function createDataTable(qtdRepeat, qtdPerLine){
     } 
 }
 
+
+/*Daqui para baixo precisa ser modificado*/
+
+
 //Confirma as cores e marca se está disponivel ou indisponivel
 function confirmDisp(idCell){
     const getNum = document.getElementById(`row${idCell}`)
     const getColor = window.getComputedStyle(getNum).backgroundColor
+    console.log(getColor)
+    
     if(getColor == "rgb(255, 158, 158)") alert(`${idCell} está indisponivel`)
     //if(getColor == "rgb(144, 238, 144)") alert(`${idCell} está disponivel`)
-    if(getColor == "rgb(144, 238, 144)") addNumberInCar(getNum)
+    if(getColor == "rgb(231, 239, 241)") addNumberInCar(getNum)
 }
 
 function addNumberInCar(getNum){
@@ -80,7 +87,7 @@ function addNumberInCar(getNum){
         
 
         // Pego a div resultado para inseir os numero selecionados e salvar os valores
-        const divResult = document.querySelector('.numbers')
+        const divResult = document.querySelector('.numbers-selected')
         const currentResult = divResult.textContent 
         
         if(divResult.childNodes.length == 1) {
@@ -103,7 +110,7 @@ function addNumberInCar(getNum){
     }   
 }
 
-function finanilyBuy(){
+function finalyBuy(){
     document.querySelector('.container').style.display = 'none'
     document.querySelector('.resultFinaly').style.display = 'flex'
     

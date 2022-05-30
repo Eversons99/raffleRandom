@@ -11,13 +11,16 @@
     display: flex;
     flex-direction: column;
     padding: 3vh;
-    margin: 2vh;
-    background-color: #eeeeee;
-    
+    margin: 2vh;   
+    background: #ebf1f3; 
 }
+
 table{
     text-align: center; 
+    background: #ffffff; 
+    padding: 1.5vh;
 }
+
 .image{
     display: flex;
     justify-content: center;
@@ -30,32 +33,27 @@ table{
 }
 
 
-/*Daqui pra baixo é cachorrada*/
-
 td{
-    background-color: lightgreen;
-    border-radius: 30%;
-    padding: 1vh;
-}
-
-#row1, #row15, #row33, #row45, #row145, #row958, #row995{
-    background-color: rgb(255, 158, 158);
+    border: solid black 0.5px;
+    background: #e7eff1; 
+    padding: 0;
 }
 
 #titleTable{
     font-weight: 900; 
     background: none;
-    border-radius: 0;
+    border: none;
     padding: 2vh;
     margin: 1vh;
     font-size: 20px;
 }
 
 .numbers{
-    padding: 2vh;
-    padding-bottom: 0;
+    padding: 1vh;
     margin: 2vh;
 }
+
+/*Daqui pra baixo é cachorrada*/
 
 button{
     display: none;

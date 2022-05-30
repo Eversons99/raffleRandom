@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./resources/style.css">
     <title>RaffleRandom</title>
 </head>
 <body onload="onloadPage()">
@@ -12,7 +12,7 @@
         <header>
             <!--Alguma coisa que eu ainda não sei -->
             <div class="image">
-                <img src="banner.jpg" alt="Imagem De um bilhete de rifa" id="banner">
+                <img src="./images/money.png" alt="Imagem De um bilhete de rifa" id="banner">
             </div>
             
         </header>
@@ -28,10 +28,10 @@
                 </tbody>
             </table>
 
-            <div class="numbers"> 
+            <div class="numbers-selected"> 
             </div>
             <div class="btnFinaly">
-                <button onclick="finanilyBuy()">Finalizar compra</button>
+                <button onclick="finalyBuy()">Finalizar compra</button>
             </div>
         </section>
 
@@ -41,7 +41,7 @@
     </div>
 
     <div class="resultFinaly container">
-        <img src="compra.jpg" alt="" srcset="">
+        <img src="./images/compra.jpg" alt="" srcset="">
         <p>Número(s) comprado(s):</p>
         <p id="resultList"></p>
     </div>

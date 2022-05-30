@@ -131,7 +131,7 @@ function confirmCadast(){
     const phone = document.getElementById('phone').textContent
     const email = document.getElementById('email').innerText
 
-    if(!name || !phone || !email) alert ('Preencha todos os dados')
+    if(name.length == 0  || phone.length == 0 || email.length == 0) alert ('Preencha todos os dados')
 
     //Salvar o cadastro e confimar o pagamento
 }

@@ -1,19 +1,23 @@
-//Rodando meu server na porta 3000 
-const path = require('path');
-const express = require ('express')
+const express = require('express')
 const app = express()
-const port = 3000
-
+const port = 3001
 
 app.listen(port, () => {
-    console.log('Running Server')
+    console.log('Server Running')
 })
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/index.html'));
+//Criando rotas
+app.get('/', function(req, res){
+    res.sendFile(__dirname + '/index.html')
 })
-/*
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '/index.html'));
-});
-*/
+
+app.get('/mainIndex.js', function(req, res){
+    res.sendFile(__dirname + '/mainIndex.js')
+})
+
+app.get('/resources/style.css', function(req, res){
+    res.sendFile(__dirname + '/resources/style.css')
+})
+
+app.use(express.static('images'));
+

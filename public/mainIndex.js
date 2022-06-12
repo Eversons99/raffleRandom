@@ -2,11 +2,11 @@ const control = []
 
 
 class Client {
-    constructor(name, phone, email, numbersSelect) {  // Constructor
+    constructor(name, phone, email, numbers_select) {  // Constructor
       this.name = name;
       this.phone = phone;
       this.email = email
-      this.numbersSelect = numbersSelect
+      this.numbers_select = numbers_select
     }
 }
 
@@ -126,13 +126,13 @@ function confirmCadast(){
     const name = document.getElementById('name').value
     const phone = document.getElementById('phone').value
     const email = document.getElementById('email').value
-    const numbersSelect = []
+    const numbers_select = []
 
     if(!name || !phone || !email) alert ('Preencha todos os dados')
 
 
     for(number of control){
-        numbersSelect.push(number)
+        numbers_select.push(number)
     }
 
     //Limpando a lista
@@ -141,31 +141,33 @@ function confirmCadast(){
     }
 
     //Salvar o cadastro e confimar o pagamento
-    insertClient(name, phone, email, numbersSelect)
+    insertClient(name, phone, email, numbers_select)
 }
 
-function insertClient(name, phone, email, numbersSelect){
-    const newClient = new Client(name, phone, email, numbersSelect)
-/*
-    
+async function insertClient(name, phone, email, numbers_select){
+    const newClient = new Client(name, phone, email, numbers_select)
+
     // Cria opções da requisição
     const opt = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            data: newClient
-            })
+        body: JSON.stringify(
+            newClient
+            )
         }
     
         // Envia dados para o backgroud
-        let dataUser = await fetch('rota', opt)
+        let dataUser = await fetch('user', opt)
         
         // Recebe a resposta do background
         dataUser = await dataUser.json()
-        */
-     
+
+        console.log(dataUser)
+
+        if(dataUser.status != "OK, recived with sucess") alert ("Algum dado está faltando ou foi inserido incorretamente")
+        
 }
 
 

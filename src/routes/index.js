@@ -1,4 +1,5 @@
-// Criei um novo roteador contendo todos meus outros roteadores.
+// Criei um novo roteador (Principal) contendo todos meus outros roteadores/rotas (user).
+
 // Dependo da rota que o meu usuario acessar eu vou encaminha-lo para o roteador responsavel por esta rota
 
 const express = require('express')

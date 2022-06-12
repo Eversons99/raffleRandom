@@ -16,9 +16,15 @@ const dataSchema = connection.Schema({
         default: v4()
     },
 
-    nome:{
+    name:{
         type:String, 
         required: true 
+    },
+
+    phone:{
+        type:String,
+        required: true,
+        validate: /^\d{2} 9?\d{8}$/
     },
 
     email:{
@@ -27,20 +33,14 @@ const dataSchema = connection.Schema({
         unique: true
     },
 
-    tel:{
-        type:String,
-        required: true,
-        validate: /^\d{2} 9?\d{8}$/
+    numbers_select:{
+        type:[Number], //indica que isso é um array de numeros
+        required: true
     },
 
     create_date:{
         type: Date,
         default: Date.now()
-    },
-
-    numbers:{
-        type:[Number], //indica que isso é um array de numeros
-        required: true
     }
 })
 

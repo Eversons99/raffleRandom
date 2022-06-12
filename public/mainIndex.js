@@ -1,5 +1,6 @@
 const control = []
-const allClients = []
+
+
 class Client {
     constructor(name, phone, email, numbersSelect) {  // Constructor
       this.name = name;
@@ -145,14 +146,35 @@ function confirmCadast(){
 
 function insertClient(name, phone, email, numbersSelect){
     const newClient = new Client(name, phone, email, numbersSelect)
-
-    allClients.push(newClient)
-    console.log(allClients)
+/*
+    
+    // Cria opções da requisição
+    const opt = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            data: newClient
+            })
+        }
+    
+        // Envia dados para o backgroud
+        let dataUser = await fetch('rota', opt)
+        
+        // Recebe a resposta do background
+        dataUser = await dataUser.json()
+        */
+     
 }
+
+
+
+
 
 //Agora com os dados salvos bastar inseri-los em um BD e gerar o pix
 
-/*1º Enviar os dados coletados para o banco de dados em forma de requisição HTTP
+/*1º Enviar os dados coletados para o banco de dados
   2º Gerar o PIX 
   3º Marcar o numero como em espera ou vendido
   4º Atualizar os numero vendidos sempre que carregarem a pagina 

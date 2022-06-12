@@ -16,8 +16,6 @@ function onloadPage (){
     const width = window.innerWidth
     let qtdRepeat = 0 
     let qtdPerLine = 0
-    
-    console.log(`altura: ${height} largura: ${width}`)
 
     if(width <= 450){
         qtdRepeat = 200
@@ -67,8 +65,7 @@ function createDataTable(qtdRepeat, qtdPerLine){
 function confirmDisp(idCell){
     const getNum = document.getElementById(`row${idCell}`)
     const getColor = window.getComputedStyle(getNum).backgroundColor
-    console.log(getColor)
-    
+
     if(getColor == "rgb(58, 85, 94)") alert(`${idCell} está indisponivel`)
     //if(getColor == "rgb(144, 238, 144)") alert(`${idCell} está disponivel`)
     if(getColor == "rgb(231, 239, 241)") addNumberInCar(getNum)
@@ -146,7 +143,10 @@ function confirmCadast(){
 
 async function insertClient(name, phone, email, numbers_select){
     const newClient = new Client(name, phone, email, numbers_select)
-
+    const numbersOfClient = {
+        numbers: numbers_select,
+        email: email
+    }
     // Cria opções da requisição
     const opt = {
         method: 'POST',
@@ -155,29 +155,47 @@ async function insertClient(name, phone, email, numbers_select){
         },
         body: JSON.stringify(
             newClient
-            )
-        }
+        )
+    }
     
-        // Envia dados para o backgroud
-        let dataUser = await fetch('user', opt)
+    // Envia dados para o backgroud
+    let dataUser = await fetch('user', opt)
         
-        // Recebe a resposta do background
-        dataUser = await dataUser.json()
+    // Recebe a resposta do background
+    dataUser = await dataUser.json()
 
-        console.log(dataUser)
+    console.log(dataUser)
 
-        if(dataUser.status != "OK, recived with sucess") alert ("Algum dado está faltando ou foi inserido incorretamente")
+    // Cria opções da requisição
+ 
+    const newOpt = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+            numbersOfClient
+            )
+    }
+    
+    // Envia dados para o backgroud
+    let dataNumbers = await fetch('insert_numbers', newOpt)
         
+    // Recebe a resposta do background
+    dataNumbers = await dataNumbers.json()
+
+    console.log(dataNumbers)
+
+    if(dataUser.status != "OK, recived with sucess" || dataNumbers.status != "OK, recived with sucess") alert ("Algum dado está faltando ou foi inserido incorretamente")
+
+
 }
-
-
-
 
 
 //Agora com os dados salvos bastar inseri-los em um BD e gerar o pix
 
-/*1º Enviar os dados coletados para o banco de dados
-  2º Gerar o PIX 
+/*1º Gerar o PIX 
+  2º Enviar os dados coletados para o banco de dados
   3º Marcar o numero como em espera ou vendido
   4º Atualizar os numero vendidos sempre que carregarem a pagina 
 */  

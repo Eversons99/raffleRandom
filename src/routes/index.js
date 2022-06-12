@@ -4,9 +4,11 @@
 
 const express = require('express')
 const userRouter = require('./user.routes')
+const insertNumbers = require('./buyer.numbers.routes')
 
 const routes = express.Router()
 
 routes.use('/user', userRouter)
+routes.use('/insert_numbers', insertNumbers)
 
 module.exports = routes

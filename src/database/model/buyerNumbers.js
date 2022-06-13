@@ -8,9 +8,10 @@ const numbersSchema = connection.Schema({
         default: v4()
     },
 
-    email:{
-        type:String, 
-        required: true, 
+    cpf:{
+        type:String,
+        required:true,
+        validate: /^\d{3}\d{3}\d{3}\d{2}$/
     },
 
     numbers:{

@@ -30,12 +30,19 @@ const dataSchema = connection.Schema({
     email:{
         type:String, 
         required: true, 
-        unique: true
+        //unique: true
+    },
+
+    cpf:{
+        type:String,
+        required:true,
+        validate: /^\d{3}\d{3}\d{3}\d{2}$/
     },
 
     numbers_select:{
         type:[Number], //indica que isso é um array de numeros
-        required: true
+        required: true,
+        unique: true
     },
 
     create_date:{

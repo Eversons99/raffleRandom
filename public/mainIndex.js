@@ -2,10 +2,11 @@ const control = []
 
 
 class Client {
-    constructor(name, phone, email, numbers_select) {  // Constructor
+    constructor(name, phone, email, cpf, numbers_select) {  // Constructor
       this.name = name;
       this.phone = phone;
       this.email = email
+      this.cpf = cpf
       this.numbers_select = numbers_select
     }
 }
@@ -123,11 +124,16 @@ function confirmCadast(){
     const name = document.getElementById('name').value
     const phone = document.getElementById('phone').value
     const email = document.getElementById('email').value
+    const cpf = document.getElementById('cpf').value
     const numbers_select = []
+    
+    const regexCpf = /^\d{3}\d{3}\d{3}\d{2}$/
+    const regexPhone = /^\d{2} 9?\d{8}$/
 
-    if(!name || !phone || !email) alert ('Preencha todos os dados')
-
-
+    if(!name || !phone || !email || !cpf) return alert ('Preencha todos os dados')
+    if(regexPhone.test(phone) == false) return alert (`Insira o telefone como no exemplo: \n (DD) XXXXXXXXX `)
+    if(regexCpf.test(cpf) == false) return alert (`Insira apenas os números do seu CPF, como no exemplo: \n XXXXXXXXXXX `)
+    
     for(number of control){
         numbers_select.push(number)
     }
@@ -138,14 +144,14 @@ function confirmCadast(){
     }
 
     //Salvar o cadastro e confimar o pagamento
-    insertClient(name, phone, email, numbers_select)
+    insertClient(name, phone, email, cpf, numbers_select)
 }
 
-async function insertClient(name, phone, email, numbers_select){
-    const newClient = new Client(name, phone, email, numbers_select)
+async function insertClient(name, phone, email, cpf, numbers_select){
+    const newClient = new Client(name, phone, email, cpf, numbers_select)
     const numbersOfClient = {
         numbers: numbers_select,
-        email: email
+        cpf: cpf
     }
     // Cria opções da requisição
     const opt = {

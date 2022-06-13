@@ -81,7 +81,7 @@ td{
     justify-content: flex-start;
 }
 
-.cad-name, .cad-email, .cad-phone, .numbers-selecteds {
+.cad-name, .cad-email, .cad-phone, .cad-cpf, .numbers-selecteds {
     display: flex;
     flex-direction: column;
     padding: 2vh 0;

@@ -192,9 +192,10 @@ async function insertClient(name, phone, email, cpf, numbers_select){
 
     console.log(dataNumbers)
 
-    if(dataUser.status != "OK, recived with sucess" || dataNumbers.status != "OK, recived with sucess") alert ("Algum dado está faltando ou foi inserido incorretamente")
+    if(dataUser.status != "OK, recived with sucess" || dataNumbers.status != "OK, recived with sucess") return alert ("Algum dado está faltando ou foi inserido incorretamente")
 
-
+    document.querySelector('.form').style.display = "none"
+    document.querySelector('.completedBuy').style.display = "flex"
 }
 
 

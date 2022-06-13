@@ -131,3 +131,30 @@ footer{
 .resultFinaly p{
     margin: 2vh;
 }
+
+.pix, .completedBuy{
+    max-width: 90vh;
+    font-size: 16px;
+    padding: 1vh;
+}
+
+.completedBuy{
+    display: none;
+    padding: 4vh;
+}
+
+#key-pix, #msgPay{
+    max-width: 80vh;
+    background-color: #afafaf;
+    padding: 1vh;
+    border-radius: 10px
+}
+#msgPay {
+    background: none;
+}
+
+#pix, #imgBuy{
+    max-width: 150px;
+    max-height: 150px;  
+}
+

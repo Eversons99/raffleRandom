@@ -1,4 +1,4 @@
-// Criei um novo roteador (Principal) contendo todos meus outros roteadores/rotas (user).
+//Este arquivo é o meu router (Principal) contendo todos meus outros roteadores/rotas (user e etc).
 
 // Dependo da rota que o meu usuario acessar eu vou encaminha-lo para o roteador responsavel por esta rota
 

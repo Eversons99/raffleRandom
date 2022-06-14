@@ -1,4 +1,4 @@
-//login, logout e troca de senha
+// Este arquivo verificar o login, logout e troca de senha
 
 const express = require('express')
 const sessionRoutes = express.Router()
@@ -6,7 +6,7 @@ const autheticateSession = require('../services/authenticateSessionService')
 const confirmToken = require('../middlewares/confirmToken')
 
 sessionRoutes.post('/', async function(req, res){
-    const { email, password } = req.body
+    const { email, password } = req.body // pegando apenas as chaves email e password contidas na req 
     
     try{
         const token = await autheticateSession({ email, password })
@@ -18,7 +18,7 @@ sessionRoutes.post('/', async function(req, res){
     }
 })
 
-//Essa é uma rota middleware
+//Essa é uma rota middleware, ela confirmará se o token do meu usuario é valido
 
 sessionRoutes.get('/', confirmToken, async (req, res) => {
     console.log(req.userInfo)

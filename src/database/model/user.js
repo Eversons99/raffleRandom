@@ -1,8 +1,7 @@
-// Esse arquvivo monta o schema dos dados a serem salvos
-// Para é aconselhavel seperar os Schemas em arquivos diferentes
+// Esse arquvivo monta o schema dos dados (usuarios administradores) a serem salvos
+// É aconselhavel seperar os Schemas em arquivos diferentes
 // Na exportação do V4 estou importando uma função (uuid) que gera um ID unico para cada registro inserido
  
-
 const { v4 } = require("uuid")
 const connection = require('../conection') // importando meu arquivo de coneção com BD
 
@@ -36,7 +35,7 @@ const dataSchema = connection.Schema({
     password:{
         type:String,
         required: true,
-        select: false      // Quando eu busco o usuario ele não traz a senha
+        select: false      // Quando eu consultar o banco ele não me rotornada o valor da senha
     },
 
     cpf:{

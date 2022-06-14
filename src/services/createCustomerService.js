@@ -12,6 +12,3 @@ async function createUser(body){
 
 
 module.exports = createUser
-
-
-//Criar um novo schema,com os numeros, contendo 

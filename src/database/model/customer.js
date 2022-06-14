@@ -1,9 +1,8 @@
- 
-
-const { v4 } = require("uuid")
+//Este arquivo cria um Schema para os dados (cliente / Customer == Client) que serão inseridos no banco
+const { v4 } = require("uuid") // importando uma biblioteca que  gera um ID unico, aleatoriamente
 const connection = require('../conection') // importando meu arquivo de coneção com BD
 
-// required: true == not null 
+// required: true == not null or not undefined 
 // unique: true == verificar se já existe algum dado igual no cadastro, caso exista será gerado um erro
 
 const dataSchema = connection.Schema({

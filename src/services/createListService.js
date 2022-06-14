@@ -11,6 +11,13 @@ async function insertNumber(numbersOfClient){
     return insertNumber
 }
 
-
 module.exports = insertNumber
 
+
+
+/**
+ * const numbers = await dbNumbers.find();
+ * return numbers;
+ * 
+ * return response.json(numbers)
+ */

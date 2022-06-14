@@ -30,7 +30,13 @@ const dataSchema = connection.Schema({
     email:{
         type:String, 
         required: true, 
-        //unique: true
+        unique: true
+    },
+
+    password:{
+        type:String,
+        required: true,
+        select: false      // Quando eu busco o usuario ele não traz a senha
     },
 
     cpf:{
@@ -39,16 +45,11 @@ const dataSchema = connection.Schema({
         validate: /^\d{3}\d{3}\d{3}\d{2}$/
     },
 
-    numbers_select:{
-        type:[Number], //indica que isso é um array de numeros
-        required: true,
-        unique: true
-    },
-
     create_date:{
         type: Date,
         default: Date.now()
     }
+
 })
 
 const dbUser = connection.model("dbUser", dataSchema)

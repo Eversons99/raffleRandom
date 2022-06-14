@@ -14,7 +14,7 @@ async function autheticateSession({email, password}){
     if(!password) throw new Error(`Senha não informada`)
 
     //consultando no banco de ja exite um email, se existir ele retorna o objeto onde esse email esta
-    const isUser = await dbUser.findOne({email: email}).select('+password')
+    //O select é usado para retornar o campo password 
     if(!isUser) throw new Error(`Não foi encontrado nenhum usuário com este e-mail`)
 
 
@@ -23,6 +23,7 @@ async function autheticateSession({email, password}){
     if(!isValid) throw new Error(`Senha incorreta`)
 
     //Gerando o token final para o meu user
+    //parametros sign(1° Objeto vazio, 2° auto.secret (minha chave unica usada em uma parte do token, 3° Dados do meu usario em um objeto, convertido para JSON), 4° tempo de expiração do token)
     const token =  jwt.sign({}, auth.secret, {subject: JSON.stringify({id: isUser.id, name: isUser.name }), expiresIn: auth.expiresIn})
 
     console.log(token)

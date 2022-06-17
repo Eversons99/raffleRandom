@@ -86,7 +86,7 @@ function addNumberInCar(getNum){
         
         if(divResult.childNodes.length == 1) {
             control.push(currentNum)
-            document.querySelector('.btnFinaly').style.display = 'inline'
+            document.querySelector('.btn-finaly').style.display = 'inline'
             divResult.append(`Número(s) selecionado(s): \n ${currentNum}`)
             
         }
@@ -116,7 +116,7 @@ function finalyBuy(){
 
 }
 
-const btnNextP = document.getElementById('btnNextP')
+const btnNextP = document.getElementById('btn-next-prosseg')
 btnNextP.addEventListener('click', confirmCadast)
 
 function confirmCadast(){
@@ -195,7 +195,7 @@ async function insertClient(name, phone, email, cpf, numbers_select){
     if(dataUser.status != "OK, recived with sucess" || dataNumbers.status != "OK, recived with sucess") return alert ("Algum dado está faltando ou foi inserido incorretamente")
 
     document.querySelector('.form').style.display = "none"
-    document.querySelector('.completedBuy').style.display = "flex"
+    document.querySelector('.completed-buy').style.display = "flex"
 }
 
 

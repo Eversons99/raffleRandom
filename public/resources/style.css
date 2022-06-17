@@ -33,14 +33,13 @@ table{
     border-radius: 20%;
 }
 
-
 td{
     border: solid black 0.25px;
     background: #e7eff1; 
     padding: 0;
 }
 
-#titleTable{
+#title-table{
     font-weight: 900; 
     background: none;
     border: none;
@@ -98,13 +97,14 @@ input{
     text-align: center;
 }
 
-.btnFinaly{
+.btn-finaly{
    display: none; 
 }
 
-.btnNextP{
+.btn-next-prosseg{
     display: flex;
 }
+
 footer{
     padding: 2vh;
 }
@@ -128,17 +128,18 @@ footer{
     max-height: 100%;
     padding: 2vh;
 }
+
 .resultFinaly p{
     margin: 2vh;
 }
 
-.pix, .completedBuy{
+.pix, .completed-buy{
     max-width: 90vh;
     font-size: 16px;
     padding: 1vh;
 }
 
-.completedBuy{
+.completed-buy{
     display: none;
     padding: 4vh;
 }
@@ -149,6 +150,7 @@ footer{
     padding: 1vh;
     border-radius: 10px
 }
+
 #msgPay {
     background: none;
 }
@@ -156,5 +158,32 @@ footer{
 #pix, #imgBuy{
     max-width: 150px;
     max-height: 150px;  
+}
+
+.menu {
+    margin: 1vh auto;
+}
+
+#icon-login {
+    width: 50%;
+}
+
+/*Page Login*/
+#icon-login-page {
+    padding: 2vh;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.form-login {
+    display: flex;
+    width: 100%;
+
+}
+
+.user input, .pass input {
+    padding: 0;
+    margin: 1vh auto;
+    width: 100%;
 }
 

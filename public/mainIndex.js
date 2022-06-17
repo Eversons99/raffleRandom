@@ -165,7 +165,7 @@ async function insertClient(name, phone, email, cpf, numbers_select){
     }
     
     // Envia dados para o backgroud
-    let dataUser = await fetch('user', opt)
+    let dataUser = await fetch('customer', opt)
         
     // Recebe a resposta do background
     dataUser = await dataUser.json()

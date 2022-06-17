@@ -216,7 +216,7 @@ footer{
     width: 90%;
     background-color: #f1f1f1;
     position: absolute;
-    transition: all .2s linear;
+    transition: all .4s linear;
     top: -300px;
 
 }
@@ -235,7 +235,7 @@ nav a{
 .link{
     background-color:  #f1f1f1;
     padding: 20px;
-    transition: all .2s linear;
+    transition: all .4s linear;
     border-bottom: 2px solid rgb(109, 103, 103);
     color: black;
 

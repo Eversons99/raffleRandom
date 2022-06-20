@@ -30,5 +30,4 @@ async function autheticateSession({email, password}){
     return token
 }
 
-
 module.exports = autheticateSession

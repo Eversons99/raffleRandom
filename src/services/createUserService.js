@@ -6,6 +6,7 @@ const bcryptjs = require('bcryptjs') // Usado para criptografar a senha
 // Um array como todos os campos que são obrigatórios, esse array será usado para fazer uma comparação abaixo
 const requiredFields = ["name", "email", "phone", "cpf", "password"];
 
+//const requiredFields = ["email", "password"]
 //Function que cria meu usario e o insere no BD
 async function createUser({ userData }){
     console.log(userData)

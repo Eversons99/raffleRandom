@@ -33,14 +33,13 @@ table{
     border-radius: 20%;
 }
 
-
 td{
     border: solid black 0.25px;
     background: #e7eff1; 
     padding: 0;
 }
 
-#titleTable{
+#title-table{
     font-weight: 900; 
     background: none;
     border: none;
@@ -98,25 +97,24 @@ input{
     text-align: center;
 }
 
-.btnFinaly{
+.btn-finaly{
    display: none; 
 }
 
-.btnNextP{
+.btn-next-prosseg{
     display: flex;
 }
+
 footer{
     padding: 2vh;
 }
 
 
-/*Daqui pra baixo é cachorrada*/
-
-
-#row10, #row1000 {
+.sold {
     background: #3a555e;
 }
 
+/*Daqui pra baixo é cachorrada*/
 .resultFinaly{
     display: none;
     flex-direction: column;
@@ -128,17 +126,18 @@ footer{
     max-height: 100%;
     padding: 2vh;
 }
+
 .resultFinaly p{
     margin: 2vh;
 }
 
-.pix, .completedBuy{
+.pix, .completed-buy{
     max-width: 90vh;
     font-size: 16px;
     padding: 1vh;
 }
 
-.completedBuy{
+.completed-buy{
     display: none;
     padding: 4vh;
 }
@@ -149,6 +148,7 @@ footer{
     padding: 1vh;
     border-radius: 10px
 }
+
 #msgPay {
     background: none;
 }
@@ -158,3 +158,95 @@ footer{
     max-height: 150px;  
 }
 
+.menu {
+    margin: 1vh auto;
+}
+
+#icon-login {
+    width: 50%;
+}
+
+/*Page Login*/
+#icon-login-page {
+    padding: 2vh;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.form-login {
+    display: flex;
+    width: 100%;
+
+}
+
+.user input, .pass input {
+    padding: 0;
+    margin: 1vh auto;
+    width: 100%;
+}
+
+/*Menu retrátil*/
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: #ebf1f3; 
+    border-radius: 10px;
+}
+
+#check{
+    display: none;
+}
+
+#icone{
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+}
+
+.barra {
+    display: flex;
+    margin: 2vh auto;
+    padding: 0;
+    height: 20%;
+    width: 90%;
+    background-color: #f1f1f1;
+    position: absolute;
+    transition: all .4s linear;
+    top: -300px;
+
+}
+
+nav{
+    width: 100%;
+    position: absolute;
+    top:60px;
+}
+
+nav a{
+    text-decoration: none;
+        margin-bottom: 2vh;
+}
+
+.link{
+    background-color:  #f1f1f1;
+    padding: 20px;
+    transition: all .4s linear;
+    border-bottom: 2px solid rgb(109, 103, 103);
+    color: black;
+
+}
+
+#first-element-menu{
+    border-top: 2px solid rgb(109, 103, 103);
+}
+
+#check:checked ~ .barra{
+    transform: translateY(300px);
+}
+
+.selected{
+    background-color: #dff04a;
+}

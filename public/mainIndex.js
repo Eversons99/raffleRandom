@@ -38,7 +38,7 @@ function onloadPage (){
 }
  
 // Cria a tabela
-function createDataTable(qtdRepeat, qtdPerLine){
+async function createDataTable(qtdRepeat, qtdPerLine){
 
     const tbody = document.querySelector('tbody')
     let count = 1
@@ -58,6 +58,37 @@ function createDataTable(qtdRepeat, qtdPerLine){
 
         tbody.appendChild(row)
     } 
+
+    await confirmNumbersPurchase()
+}
+
+//Consulta o banco para ver os numeros já vendidos
+async function confirmNumbersPurchase() {
+
+    // Cria opções da requisição
+    const opt = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(
+        )
+    }
+
+    // Envia dados para o backgroud
+    let numbers = await fetch('consult-numbers', opt)
+      
+    // Recebe a resposta do background
+    numbers = await numbers.json()
+
+    numbers.forEach(item => {
+        let number = document.getElementById(`row${item}`)
+        number.setAttribute('class', 'sold')
+    });
+
+    console.log(numbers)
+  
+    
 }
 
 /*Daqui para baixo precisa ser modificado*/
@@ -78,7 +109,7 @@ function addNumberInCar(getNum){
     const confirmFirstbuy = confirm('Deseja comprar esse numero ?')
 
     if(confirmFirstbuy == true){
-        //Adiciono o numero escolhido na aray de controle
+        //Adiciono o numero escolhido na array de controle
         
         // Pego a div resultado para inseir os numero selecionados e salvar os valores
         const divResult = document.querySelector('.numbers-selected')
@@ -88,7 +119,10 @@ function addNumberInCar(getNum){
             control.push(currentNum)
             document.querySelector('.btn-finaly').style.display = 'inline'
             divResult.append(`Número(s) selecionado(s): \n ${currentNum}`)
-            
+
+            //Pintando o nmr selecionado
+            const getNumber = document.getElementById(`row${currentNum}`)
+            getNumber.classList.add('selected')    
         }
         else{
             const verifDupicate = `${currentResult}`
@@ -99,6 +133,10 @@ function addNumberInCar(getNum){
             else {
                 control.push(currentNum)
                 divResult.append(`, ${currentNum}`)
+
+                //Pintando o nmr selecionado
+                const getNumber = document.getElementById(`row${currentNum}`)
+                getNumber.classList.add('selected')   
             }
         } 
     }   
@@ -153,6 +191,7 @@ async function insertClient(name, phone, email, cpf, numbers_select){
         numbers: numbers_select,
         cpf: cpf
     }
+
     // Cria opções da requisição
     const opt = {
         method: 'POST',
@@ -190,7 +229,6 @@ async function insertClient(name, phone, email, cpf, numbers_select){
     // Recebe a resposta do background
     dataNumbers = await dataNumbers.json()
 
-    console.log(dataNumbers)
 
     if(dataUser.status != "OK, recived with sucess" || dataNumbers.status != "OK, recived with sucess") return alert ("Algum dado está faltando ou foi inserido incorretamente")
 

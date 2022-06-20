@@ -110,13 +110,11 @@ footer{
 }
 
 
-/*Daqui pra baixo é cachorrada*/
-
-
-#row10, #row1000 {
+.sold {
     background: #3a555e;
 }
 
+/*Daqui pra baixo é cachorrada*/
 .resultFinaly{
     display: none;
     flex-direction: column;
@@ -247,4 +245,8 @@ nav a{
 
 #check:checked ~ .barra{
     transform: translateY(300px);
+}
+
+.selected{
+    background-color: #dff04a;
 }

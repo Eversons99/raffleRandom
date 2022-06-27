@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://localhost:4000/commands_update.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./NMT - Commands Generator_files/style.css">
+    <title>NMT - Commands Generator</title>
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="modal-loader" style="display: none;">
+            <div class="loader">
+
+            </div>
+        </div>
+
+        <header class="header">
+            <img src="./NMT - Commands Generator_files/logoNM.png" alt="Logo N-Multifibra" id="logoNM">
+
+            <h1 id="title">NMT - Generator Commands</h1>
+        </header>
+
+        <div class="origin-location" style="display: none;">
+
+            <section class="olt">
+                <h3>Selecione a OLT da porta de origem</h3>
+                
+                <select name="select-olt-origin" id="select-olt-origin" onchange="getHosts()">
+                    <option class="options"></option>
+                    <option class="options">OLT_CCDA_01</option> 
+                    <option class="options">OLT_COTIA_01</option>
+                    <option class="options">OLT_COTIA_02</option>
+                    <option class="options">OLT_COTIA_03</option>
+                    <option class="options">OLT_COTIA_04</option>
+                    <option class="options">OLT_EMBU_01</option>
+                    <option class="options">OLT_ITPV_01</option>
+                    <option class="options">OLT_TRMS_01</option>
+                    <option class="options">OLT_VGPA_01</option>
+                </select>
+
+            </section>
+            
+            <section class="gpon">
+                <h3>Selecione a porta GPON de origem</h3>
+
+                <div class="location-gpon">
+                    <select name="select-frame" id="select-frame">
+                        <option>0</option>
+                    </select>
+    
+                    <select id="select-slot-origin" name="select-slot-origin"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option></select>
+                    
+                    <select name="select-port-origin" id="select-port-origin"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option></select>
+                </div>
+
+                <div class="btn-find">
+                    <button type="button" onclick="getOnts()">Buscar</button>
+                </div>
+
+            </section>
+        </div>
+
+        <div class="destination-location" style="display: inline;">
+
+            <section class="table">
+                <table id="table">
+                    <tbody><tr>
+                        <th>
+                            <input type="checkbox" onclick="selectAll()" id="select-all">
+                        </th>  
+                        <th>ID</th>
+                        <th>Número de série</th>
+                        <th>Tipo</th>
+                        <th>Status</th>
+                        <th>MKRT</th>
+                    </tr>
+                </tbody><tr id="row-0" class="selected"><input type="checkbox" id="select-item" onclick="isSelected(event)"><td>0</td><td>46494F475400E2E0</td><td>Internet_100BM</td><td>ONLINE</td><input type="checkbox"></tr><tr id="row-1" class="selected"><input type="checkbox" id="select-item" onclick="isSelected(event)"><td>1</td><td>46524B57235F5017</td><td>Internet_100BM</td><td>ONLINE</td><input type="checkbox"></tr><tr id="row-2" class="selected" style="color: rgb(254, 46, 100);"><input type="checkbox" id="select-item" onclick="isSelected(event)"><td>2</td><td>46524B572369ED23</td><td>Internet_100BM</td><td class="offline">OFFLINE</td><input type="checkbox"></tr><tr id="row-3" class="selected"><input type="checkbox" id="select-item" onclick="isSelected(event)"><td>3</td><td>46494F4754011C6E</td><td>Internet_100BM</td><td>ONLINE</td><input type="checkbox"></tr><tr id="row-4" class="selected"><input type="checkbox" id="select-item" onclick="isSelected(event)"><td>4</td><td>46524B5727827A5A</td><td>Internet_100BM</td><td>ONLINE</td><input type="checkbox"></tr></table>
+            </section>
+
+            <section class="count-onts"><p class="total-onts">Total: 5</p><p class="total-onts-offline">Offline: 1</p><p class="total-onts-online">Online: 4</p></section>
+
+            <section class="olt">
+                <h3>Selecione a OLT da porta de destino</h3>
+                
+                <select name="select-olt-destination" id="select-olt-destination" onchange="getHosts()">
+                    <option class="options"></option>
+                    <option class="options">OLT_CCDA_01</option> 
+                    <option class="options">OLT_COTIA_01</option>
+                    <option class="options">OLT_COTIA_02</option>
+                    <option class="options">OLT_COTIA_03</option>
+                    <option class="options">OLT_COTIA_04</option>
+                    <option class="options">OLT_EMBU_01</option>
+                    <option class="options">OLT_ITPV_01</option>
+                    <option class="options">OLT_TRMS_01</option>
+                    <option class="options">OLT_VGPA_01</option>
+                </select>
+
+            </section>
+
+            <section class="gpon">
+                <h3>Selecione a porta GPON de destino</h3>
+
+                <div class="location-gpon">
+                    <select name="select-frame-destination" id="select-frame-destination">
+                        <option>0</option>
+                    </select>
+
+                    <select id="select-slot-destination" name="select-slot-destination">
+                        <option></option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                    </select>
+                    
+                    <select name="select-port-destination" id="select-port-destination">
+                        <option></option>
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="file-name">
+                <h3>Informe um nome para o seu arquivo</h3>
+                <input type="text" id="file-name">
+            </section>
+            
+            <div class="btn-continue">
+                <button type="button" onclick="continueButton()">Continuar</button>
+            </div>
+        </div>
+
+        <div class="result" id="result">
+            <h3>Comandos gerados</h3>
+      
+        </div>
+
+        <!--Div onde será gerados as atenuações-->
+        <div class="attenuations">
+
+            <div class="btn-next-att">
+                
+            </div>
+
+            <div class="tableAllregister">
+                <table id="table-attenuations">
+                    
+                </table>
+            </div>
+            
+        </div>
+    </div>  
+
+    <script src="./NMT - Commands Generator_files/commands_update.js"></script>
+
+
+
+<!--Inicio homepage
+    <div class="home">
+        <header class="header">
+            <img src="resources/img/logo/logoNM.png" alt="Logo N-Multifibra" id="logoNM"/>
+
+            <h1 id="title">NMT - Commands</h1>
+        </header>
+
+        <div class="select-mode">
+            <div class="gennerator-commands">
+                <button class="btn-select-operate-mode buttons" onclick="selectModeOperate('GenneratorCommands')">Gennerator Commands</button>
+            </div>
+    
+            <div class="gennerator-attenuation">
+                <button class="btn-select-operate-mode buttons"  onclick="selectModeOperate('GenneratorAttenuation')">Gennerator Attenuation</button>
+            </div>
+        </div>
+
+    </div>
+    <!--Fim homepage-->
+<!--Inicio Gennerator Attenuations
+    <div class="container gennerator-attenuation-container">
+
+        <div class="modal-loader">
+            <div class="loader">
+
+            </div>
+        </div>
+
+        <header class="header">
+            <img src="resources/img/logo/logoNM.png" alt="Logo N-Multifibra" id="logoNM"/>
+
+            <h1 id="title">NMT - Generator Commands</h1>
+        </header>
+
+        <div class="origin-location">
+
+            <section class="olt">
+                <h3>Selecione a OLT da porta de origem</h3>
+                
+                <select name="select-olt-origin" id="select-olt-origin" onchange="getHosts()">
+                    <option class="options"></option>
+                    <option class="options">OLT_CCDA_01</option> 
+                    <option class="options">OLT_COTIA_01</option>
+                    <option class="options">OLT_COTIA_02</option>
+                    <option class="options">OLT_COTIA_03</option>
+                    <option class="options">OLT_COTIA_04</option>
+                    <option class="options">OLT_EMBU_01</option>
+                    <option class="options">OLT_ITPV_01</option>
+                    <option class="options">OLT_TRMS_01</option>
+                    <option class="options">OLT_VGPA_01</option>
+                </select>
+
+            </section>
+            
+            <section class="gpon">
+                <h3>Selecione a porta GPON de origem</h3>
+
+                <div class="location-gpon">
+                    <select name="select-frame" id="select-frame">
+                        <option>0</option>
+                    </select>
+    
+                    <select id="select-slot-origin" name="select-slot-origin">
+                    </select>
+                    
+                    <select name="select-port-origin" id="select-port-origin">
+                    </select>
+                </div>
+
+                <div class="btn-find">
+                    <button type="button" onclick="getOnts()">Buscar</button>
+                </div>
+
+            </section>
+        </div>
+
+        <div class="destination-location">
+
+            <section class="table">
+                <table id="table">
+                    <tr>
+                        <th>
+                            <input type="checkbox" onclick="selectAll()" id="select-all"/>
+                        </th>  
+                        <th>ID</th>
+                        <th>Número de série</th>
+                        <th>Tipo</th>
+                        <th>Status</th>
+                        <th>MKRT</th>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="count-onts">
+                <p class="total-onts"></p>
+                <p class="total-onts-offline"></p>
+                <p class="total-onts-online"></p>
+            </section>
+
+            <section class="olt">
+                <h3>Selecione a OLT da porta de destino</h3>
+                
+                <select name="select-olt-destination" id="select-olt-destination" onchange="getHosts()">
+                    <option class="options"></option>
+                    <option class="options">OLT_CCDA_01</option> 
+                    <option class="options">OLT_COTIA_01</option>
+                    <option class="options">OLT_COTIA_02</option>
+                    <option class="options">OLT_COTIA_03</option>
+                    <option class="options">OLT_COTIA_04</option>
+                    <option class="options">OLT_EMBU_01</option>
+                    <option class="options">OLT_ITPV_01</option>
+                    <option class="options">OLT_TRMS_01</option>
+                    <option class="options">OLT_VGPA_01</option>
+                </select>
+
+            </section>
+
+            <section class="gpon">
+                <h3>Selecione a porta GPON de destino</h3>
+
+                <div class="location-gpon">
+                    <select name="select-frame-destination" id="select-frame-destination">
+                        <option>0</option>
+                    </select>
+
+                    <select id="select-slot-destination" name="select-slot-destination">
+                        <option></option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                    </select>
+                    
+                    <select name="select-port-destination" id="select-port-destination">
+                        <option></option>
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="file-name">
+                <h3>Informe um nome para o seu arquivo</h3>
+                <input type="text" id="file-name">
+            </section>
+            
+            <div class="btn-continue">
+                <button type="button" onclick="generateOntArray()">Continuar</button>
+            </div>
+        </div>
+
+        <div class='result' id="result">
+            <h3>Comandos gerados</h3>
+      
+        </div>
+    </div> 
+    <!--Fim Gennerator Attenuations-->
+<!--        <div>
+
+            <object class="resultado-ativo" id="resultado-interface" data="https://google.com">
+    
+            </object>
+    
+            <link href="http://localhost:4000/files/ggfgdfgsdfsdfthgfdfghjkl-interface.txt">
+        </div>
+
+        <iframe src="http://10.0.30.244:4000/files/Aloalo-delete.txt" title="W3Schools Free Online Web Tutorials"></iframe>-->
+<!--
+        <div class="destination-location">
+
+            <section class="table">
+                <table id="table">
+                    <tr>
+                        <th>
+                            <input type="checkbox" onclick="selectAll()" id="select-all"/>
+                        </th>  
+                        <th>ID</th>
+                        <th>Número de série</th>
+                        <th>Tipo</th>
+                        <th>Status</th>
+                        <th>MKRT</th>
+                    </tr>
+                </table>
+            </section>
+            <section class="olt">
+                <h3>Selecione a OLT da porta de destino</h3>
+                
+                <select name="select-olt-destination" id="select-olt-destination" onchange="getHosts()">
+                    <option class="options"></option>
+                    <option class="options">OLT_CCDA_01</option> 
+                    <option class="options">OLT_COTIA_01</option>
+                    <option class="options">OLT_COTIA_02</option>
+                    <option class="options">OLT_COTIA_03</option>
+                    <option class="options">OLT_COTIA_04</option>
+                    <option class="options">OLT_EMBU_01</option>
+                    <option class="options">OLT_ITPV_01</option>
+                    <option class="options">OLT_TRMS_01</option>
+                    <option class="options">OLT_VGPA_01</option>
+                </select>
+
+            </section>
+
+            <section class="gpon">
+                <h3>Selecione a porta GPON de destino</h3>
+
+                <div class="location-gpon">
+                    <select name="select-frame-destination" id="select-frame-destination">
+                        <option>0</option>
+                    </select>
+
+                    <select id="select-slot-destination" name="select-slot-destination">
+                        <option></option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                    </select>
+                    
+                    <select name="select-port-destination" id="select-port-destination">
+                        <option></option>
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="file-name">
+                <h3>Informe um nome para o seu arquivo</h3>
+                <input type="text" id="file-name">
+            </section>
+            
+            <div class="btn-continue">
+                <button type="button">Continuar</button>
+            </div>
+        </div>
+--></body></html>

@@ -1,0 +1,380 @@
+* {
+    margin: 0;
+    padding: 0; 
+    font-family: "Graphik-Medium", "Graphik-Regular", "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #eeeeff;
+    text-align: center;
+}
+
+.container, .origin-location{ 
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vh;
+}
+
+#logoNM{
+    width: 70%;
+    padding: 2vh;
+}
+
+.olt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 70%;
+    justify-content: center;
+}
+
+.olt select, .location-gpon select {
+    width: 95%;
+    background: #cbe0f7;
+    border: none;
+    padding: 1.5vh;
+    margin: 1vh;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.gpon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.location-gpon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90vh;
+}
+
+#file-name {
+    width: 70%;
+    background: #cbe0f7;
+    border: none;
+    padding: 1.5vh;
+    margin: 1vh;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+button{
+    background: #4e9ff4;
+    margin: 16px;
+    font-size: 16px;
+    min-width: 150px;
+    min-height: 50px;
+    min-width: max-content + 5px;
+    transition: 0.2s;
+    color: white;
+    font-weight: 900;
+    border: none;
+    border-radius: 4px;
+    max-width: 70%;
+}
+
+/*Copiado do outro style*/
+.table{
+    display: flex;
+    width: 80%;
+    margin: 1vh auto;
+}
+
+table {
+    width: 95%;
+    background: #f6f7fd;
+    text-align: center;
+    border-radius: 16px;
+    padding-bottom: 16px;
+    border: none;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table th {
+    min-width: 80%;
+    padding: 16px;
+    background: #4e9ff4;
+    color: white;
+    margin-bottom: 16px;
+}
+  
+table th:first-child {
+    border-radius: 16px 0 0 0;
+}
+  
+table th:last-child {
+    border-radius: 0 16px 0 0;
+}
+
+.destination-location{
+    display: none;
+}
+
+.count-onts{
+    display: flex;
+    justify-content: center;
+    /*width: 100%;*/
+    margin: 1vh auto;
+    width: 70%;
+}
+
+.total-onts, .total-onts-offline, .total-onts-online{
+    background: #4e9ff4;
+    margin: 3vh;
+    padding: 10px;
+    font-size: 14px;
+    min-width: max-content;
+    transition: 0.2s;
+    color: white;
+    font-weight: 900;
+    border: none;
+    border-radius: 4px;
+    max-width: max-content;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+    max-height: 500px;
+    overflow: auto;
+    display: none;
+}
+
+.result object {
+    background: white;
+    width: 1000px;
+    height: 700px;
+}
+  
+.result-inativo {
+    display: none;
+}
+
+.resultado-inativo {
+    display: none;
+}
+
+#resultado-interface, #resultado-global,  #resultado-delete{
+    width: 100%;
+    font-size: 10px;
+    color: black;
+}
+
+/*Animation Loading*/
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.modal-loader {
+    display: none;
+    margin: 0 auto;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    align-items: center;
+    opacity: 0.5;
+}
+
+/*Animation Loading*/
+
+@media (max-width: 870px) {
+
+    #logoNM{
+        width: 70%;
+        padding: 2vh;
+    }
+
+    .container, .origin-location{ 
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+        align-items: center;
+    }
+
+    .olt{
+        width: 95%;
+    }
+    
+    .location-gpon{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 70vh;
+    }
+    
+    .location-gpon, .olt select{
+        width: 80%;
+    }
+
+    .gpon{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    /*Copiado do outro style*/
+    .table{
+        display: flex;
+        width: 100%;
+    }
+    table {
+        width: 95%;
+        background: #f6f7fd;
+        text-align: center;
+        border-radius: 16px;
+        padding-bottom: 16px;
+        border: none;
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+    
+    table th {
+        min-width: 80%;
+        padding: 10px;
+        background: #4e9ff4;
+        color: white;
+        margin-bottom: 16px;
+    }
+
+    th, td{
+        font-size: 12px;
+    }
+    
+    table th:first-child {
+        border-radius: 12px 0 0 0;
+    }
+    
+    table th:last-child {
+        border-radius: 0 12px 0 0;
+    }
+
+    .table input{
+        width: 10px;
+        padding: 5px;
+    }
+  
+}
+
+@media (max-width: 500px) {
+
+    *{
+        font-size: 16px;
+    }
+
+    #title{
+        font-size: 20px;
+    }
+
+    #logoNM{
+        width: 80%;
+        padding: 2vh;
+    }
+
+    .container, .origin-location{ 
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+        align-items: center;
+    }
+
+    .olt{
+        width: 95%;
+    }
+    
+    .location-gpon{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vh;
+    }
+    
+    .location-gpon, .olt select{
+        width: 80%;
+    }
+
+    .gpon{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .olt select, .location-gpon select, #file-name {
+        padding: 1vh;
+    }
+
+    table {
+        width: 95%;
+        background: #f6f7fd;
+        text-align: center;
+        border-radius: 16px;
+        padding-bottom: 16px;
+        border: none;
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 400px) {
+        /*Copiado do outro style*/
+        .table{
+            display: flex;
+            width: 100%;
+            padding: 0;
+        }
+        table {
+            width: 95%;
+            background: #f6f7fd;
+            text-align: center;
+            border-radius: 16px;
+            padding-bottom: 16px;
+            border: none;
+            border-collapse: collapse;
+            margin: 1px auto;
+        }
+    
+        th, td{
+            font-size: 10px;
+        }
+
+        .table input{
+            width: 10px;
+            padding: 2px;
+        }
+
+        .total-onts, .total-onts-offline, .total-onts-online{
+            font-size: 12px;
+        }
+
+}

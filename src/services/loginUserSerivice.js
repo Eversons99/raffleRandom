@@ -1,4 +1,6 @@
-//Importado meu schema
+// Esse arquivo vai verificar se o usuario e senha inseridos existe no banco de dados
+
+// Importado meu schema
 const dbUser = require('../database/model/user') 
 
 // Um array como todos os campos que são obrigatórios, esse array será usado para fazer uma comparação abaixo
@@ -21,12 +23,6 @@ async function confirmLogin({ userData }){
     if(isUserEmail.length == 0) throw new Error ("Email incorreto") 
     if(isUserPassword.length == 0) throw new Error ("Senha incorreta")
  
-
-    //hash seria senha do meu usuario, hashSync recebe dois parametros, a senha que ele inseriu e a rodade de criptografias (10)
-    //const hash = bcryptjs.hashSync(userData.password, 10)
-
-    //userData.password = hash
-
 
     return  "Login efetuado com sucesso"
 }

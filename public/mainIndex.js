@@ -1,6 +1,5 @@
 const control = []
 
-
 class Client {
     constructor(name, phone, email, cpf, numbers_select) {  // Constructor
       this.name = name;
@@ -59,10 +58,11 @@ async function createDataTable(qtdRepeat, qtdPerLine){
         tbody.appendChild(row)
     } 
 
+    // Função que marca os números já vendidos
     await confirmNumbersPurchase()
 }
 
-//Consulta o banco para ver os numeros já vendidos
+// Consulta o banco para ver os numeros já vendidos
 async function confirmNumbersPurchase() {
 
     // Cria opções da requisição
@@ -84,16 +84,11 @@ async function confirmNumbersPurchase() {
     numbers.forEach(item => {
         let number = document.getElementById(`row${item}`)
         number.setAttribute('class', 'sold')
-    });
-
-    console.log(numbers)
-  
+    });  
     
 }
 
-/*Daqui para baixo precisa ser modificado*/
-
-//Confirma as cores e marca se está disponivel ou indisponivel
+// Confirma as cores e marca se está disponivel ou indisponivel
 function confirmDisp(idCell){
     const getNum = document.getElementById(`row${idCell}`)
     const getColor = window.getComputedStyle(getNum).backgroundColor
@@ -101,8 +96,10 @@ function confirmDisp(idCell){
     if(getColor == "rgb(58, 85, 94)") alert(`${idCell} está indisponivel`)
     //if(getColor == "rgb(144, 238, 144)") alert(`${idCell} está disponivel`)
     if(getColor == "rgb(231, 239, 241)") addNumberInCar(getNum)
+    if(getColor == "rgb(223, 240, 74)") removeNumber(getNum)
 }
 
+// Adiciona o numero no "carrinho"
 function addNumberInCar(getNum){
     const currentNum = getNum.textContent
     
@@ -112,15 +109,15 @@ function addNumberInCar(getNum){
         //Adiciono o numero escolhido na array de controle
         
         // Pego a div resultado para inseir os numero selecionados e salvar os valores
-        const divResult = document.querySelector('.numbers-selected')
+        const divResult = document.querySelector('#resultListBuy')
         const currentResult = divResult.textContent 
         
-        if(divResult.childNodes.length == 1) {
+        if(divResult.childNodes.length == "") {
             control.push(currentNum)
             document.querySelector('.btn-finaly').style.display = 'inline'
-            divResult.append(`Número(s) selecionado(s): \n ${currentNum}`)
+            divResult.append(` ${currentNum}`)
 
-            //Pintando o nmr selecionado
+            //Pintando o numero selecionado
             const getNumber = document.getElementById(`row${currentNum}`)
             getNumber.classList.add('selected')    
         }
@@ -142,7 +139,33 @@ function addNumberInCar(getNum){
     }   
 }
 
+function removeNumber(getNum) {
+    const confirmDelete = confirm('Deseja remover esté numero de sua lista ?')
+    const resultList = document.querySelector('#resultListBuy')
+    const currentNum = getNum   
+
+    if (confirmDelete == true) {
+        //Remover a cor
+        currentNum.classList.remove("selected")
+        
+        //Remover do carrinho
+        control.forEach((number, index) => {
+            if (number == currentNum.textContent){
+                control.splice(index, 1)
+                const listRemove = resultList.textContent.split(',')
+                const indexRemove = listRemove.indexOf(` ${number}`)
+                
+                if(indexRemove != -1){
+                    listRemove.splice(indexRemove, 1)
+                    resultList.textContent = `${listRemove.toString()}`
+                }
+            }
+            
+        }) 
+    }
+}
 /*Agora basta coletar os dados dos usuarios, os numeros selecionados e confirmar o pagamento  */
+/*Daqui para baixo precisa ser modificado*/
 
 //Esconde a div container e apresenta o form, alem disso printa os nmr comprados
 function finalyBuy(){
@@ -157,6 +180,7 @@ function finalyBuy(){
 const btnNextP = document.getElementById('btn-next-prosseg')
 btnNextP.addEventListener('click', confirmCadast)
 
+// Confirma os dados inseridos no frontend
 function confirmCadast(){
 
     const name = document.getElementById('name').value
@@ -185,6 +209,7 @@ function confirmCadast(){
     insertClient(name, phone, email, cpf, numbers_select)
 }
 
+// Envia os dados para o backend
 async function insertClient(name, phone, email, cpf, numbers_select){
     const newClient = new Client(name, phone, email, cpf, numbers_select)
     const numbersOfClient = {
@@ -239,9 +264,12 @@ async function insertClient(name, phone, email, cpf, numbers_select){
 
 //Agora com os dados salvos bastar inseri-los em um BD e gerar o pix
 
-/*1º Gerar o PIX 
-  2º Enviar os dados coletados para o banco de dados
-  3º Marcar o numero como em espera ou vendido
-  4º Atualizar os numero vendidos sempre que carregarem a pagina 
+/*1º Gerar o PIX --  OK FEITO
+  2º Enviar os dados coletados para o banco de dados --  OK FEITO
+  3º Marcar o numero como em espera ou vendido --  OK FEITO
+  4º Atualizar os numero vendidos sempre que carregarem a pagina -- OK FEITO
+  5º Criar uma rota para validar o login --  OK FEITO
+  6º Criar a interface para o adm da rifa confirmar os pagamentos
+  7º Remover Nmrs do carrinho 
 */  
   

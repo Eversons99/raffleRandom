@@ -8,11 +8,15 @@ loginRouter.post('/', async function(req, res){
     try{
         let user = await loginUser({userData: body})
         res.json(user)
+     
+        
     }
     catch(error){
         console.log(error.message)
         res.json({status: error.message})
     }
+
+
 })
 
 module.exports = loginRouter

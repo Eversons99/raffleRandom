@@ -101,10 +101,12 @@ function confirmDisp(idCell){
 
 // Adiciona o numero no "carrinho"
 function addNumberInCar(getNum){
-    const currentNum = getNum.textContent
     
     const confirmFirstbuy = confirm('Deseja comprar esse numero ?')
+    const currentNum = getNum.textContent
 
+    document.querySelector('.car-numbers').style.display = "flex"
+    
     if(confirmFirstbuy == true){
         //Adiciono o numero escolhido na array de controle
         
@@ -139,6 +141,7 @@ function addNumberInCar(getNum){
     }   
 }
 
+// Remove os números selecionados
 function removeNumber(getNum) {
     const confirmDelete = confirm('Deseja remover esté numero de sua lista ?')
     const resultList = document.querySelector('#resultListBuy')
@@ -160,21 +163,23 @@ function removeNumber(getNum) {
                     resultList.textContent = `${listRemove.toString()}`
                 }
             }
-            
         }) 
     }
 }
+
 /*Agora basta coletar os dados dos usuarios, os numeros selecionados e confirmar o pagamento  */
 /*Daqui para baixo precisa ser modificado*/
 
 //Esconde a div container e apresenta o form, alem disso printa os nmr comprados
 function finalyBuy(){
-    document.querySelector('.container').style.display = 'none'
-    document.querySelector('.form').style.display = 'flex'
-     
+
+    if(control.length == 0) return alert('Selecione algum número para prosseguir')
+
     const divResult = document.getElementById('resultList')
     divResult.append(`${control}`)
 
+    document.querySelector('.container').style.display = 'none'
+    document.querySelector('.form').style.display = 'flex'
 }
 
 const btnNextP = document.getElementById('btn-next-prosseg')
@@ -269,7 +274,7 @@ async function insertClient(name, phone, email, cpf, numbers_select){
   3º Marcar o numero como em espera ou vendido --  OK FEITO
   4º Atualizar os numero vendidos sempre que carregarem a pagina -- OK FEITO
   5º Criar uma rota para validar o login --  OK FEITO
-  6º Criar a interface para o adm da rifa confirmar os pagamentos
-  7º Remover Nmrs do carrinho 
+  6º Remover Nmrs do carrinho -- OK FEITO
+  7º Criar a interface para o adm da rifa confirmar os pagamentos
 */  
   

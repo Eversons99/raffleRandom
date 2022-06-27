@@ -9,6 +9,7 @@ const userRouter = require('./user.routes')
 const sessionRoutes = require('./session.routes')
 const loginRouter =  require('./login.routes')
 const confirmNumberRouter = require('./consult.number.routes')
+const testeRouter = require('./teste.routes')
 
 const routes = express.Router()
 
@@ -18,6 +19,6 @@ routes.use('/user', userRouter)
 routes.use('/session', sessionRoutes)
 routes.use('/login', loginRouter)
 routes.use('/consult-numbers', confirmNumberRouter)
-
+routes.use('/teste', testeRouter)
 
 module.exports = routes

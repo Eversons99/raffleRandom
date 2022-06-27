@@ -250,3 +250,8 @@ nav a{
 .selected{
     background-color: #dff04a;
 }
+
+.car-numbers{
+    display: none;
+    flex-direction: column;
+}
